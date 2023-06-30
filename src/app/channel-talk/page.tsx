@@ -1,14 +1,10 @@
 import { NextPage } from "next" 
-import styled from "styled-components";
+import ChannelTalkView from "@/service/channel-talk/ChannelTalkView";
 
 const ChannelTalk: NextPage = () => {
     return (
-        <Text>채널톡</Text>
+        <ChannelTalkView />
     )  
 }
 
 export default ChannelTalk
-
-const Text = styled.div`
-    color: #ff3033;
-`
