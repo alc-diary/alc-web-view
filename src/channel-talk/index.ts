@@ -1,3 +1,4 @@
+"use client";
 class ChannelTalk {
     constructor() {
         this.boot();

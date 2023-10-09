@@ -1,3 +1,4 @@
+"use client";
 class NativeAPI {
     device: "web" | "android" | "ios";
     execute: CloseChannelTalk;
