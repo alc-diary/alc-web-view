@@ -1,16 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
 import channelTalk from "@/channel-talk";
-
-// channelTalk.onHideMessenger(() => {
-//     console.log("하이드!");
-// });
+import NativeAPI from "@/native-api";
 
 const ChannelTalkView: React.FC = () => {
     useEffect(() => {
         channelTalk.showMessenger();
         channelTalk.onHideMessenger(() => {
-            console.log("확인!");
+            NativeAPI.execute("closeChannelTalk");
         });
     }, []);
 

@@ -1,4 +1,4 @@
-export default class NativeAPI {
+class NativeAPI {
     device: "web" | "android" | "ios";
     execute: CloseChannelTalk;
 
@@ -48,3 +48,5 @@ export type AndroidFunction = { execute: (stringifyData?: string) => void };
 export type IosFunction = { postMessage: (stringityData?: string) => void };
 
 type CloseChannelTalk = (eventName: "closeChannelTalk") => void;
+
+export default new NativeAPI();
