@@ -1,33 +1,14 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
+import ChannelTalk from "@/app/channel-talk/page";
+import channelTalk from "@/channel-talk";
 
-const ChannelTalk: React.FC = () => {
+const ChannelTalkView: React.FC = () => {
     useEffect(() => {
-        if(typeof window !== "undefined") {
-            if(window.ChannelIO){
-                window.ChannelIO('boot', {
-                    "pluginKey": "039ab381-0a3f-4ed9-8bef-3d186bbf2b1b"
-                    });
-            }
-        }
-    })
+        channelTalk.openChat();
+    }, []);
 
-    return(
-        <></>
-    )
-}
+    return <></>;
+};
 
-export default ChannelTalk;
-
-declare global {
-    interface Window {
-      ChannelIO?: IChannelIO;
-      ChannelIOInitialized?: boolean;
-    }
-  }
-  
-  interface IChannelIO {
-    c?: (...args: any) => void;
-    q?: [methodName: string, ...args: any[]][];
-    (...args: any): void;
-  }
+export default ChannelTalkView;
