@@ -4,7 +4,7 @@ class NativeAPI {
     execute: CloseChannelTalk;
 
     constructor() {
-        const userAgent = window.navigator.userAgent.toLowerCase();
+        const userAgent = window?.navigator.userAgent.toLowerCase();
         const ios = userAgent.indexOf("in_app_ios") > -1;
         const android = userAgent.indexOf("in_app_aos") > -1;
 
