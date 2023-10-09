@@ -1,3 +1,5 @@
+import { ExecuteEventName, AndroidFunction, IosFunction } from "@/native-api";
+
 declare module "*.svg" {
     const component: React.FC<React.SVGProps<SVGSVGElement>>;
 
@@ -5,16 +7,16 @@ declare module "*.svg" {
 }
 
 declare global {
-    interface Window {
+    interface Window extends Record<ExecuteEventName, AndroidFunction> {
         ChannelIO: IChannelIO;
         ChannelIOInitialized?: boolean;
+
+        webkit: {
+            messageHandlers: Record<ExecuteEventName, IosFunction>;
+        };
     }
 }
 
-interface Window {
-    ChannelIO?: IChannelIO;
-    ChannelIOInitialized?: boolean;
-}
 interface IChannelIO {
     c?: (...args: any) => void;
     q?: [methodName: string, ...args: any[]][];

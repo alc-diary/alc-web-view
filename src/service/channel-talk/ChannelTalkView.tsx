@@ -1,11 +1,17 @@
 "use client";
 import React, { useEffect } from "react";
-import ChannelTalk from "@/app/channel-talk/page";
 import channelTalk from "@/channel-talk";
+
+// channelTalk.onHideMessenger(() => {
+//     console.log("하이드!");
+// });
 
 const ChannelTalkView: React.FC = () => {
     useEffect(() => {
-        channelTalk.openChat();
+        channelTalk.showMessenger();
+        channelTalk.onHideMessenger(() => {
+            console.log("확인!");
+        });
     }, []);
 
     return <></>;
