@@ -5,6 +5,7 @@ class NativeAPI {
 
     constructor() {
         if (typeof window !== "undefined") {
+            console.log("호호?");
             const userAgent = window?.navigator.userAgent.toLowerCase();
             const ios = userAgent.indexOf("in_app_ios") > -1;
             const android = userAgent.indexOf("in_app_aos") > -1;
@@ -22,12 +23,14 @@ class NativeAPI {
                 this.getEventFunction(eventName, postData);
             };
         } else {
+            console.log("히히?");
             this.device = "web";
             this.execute = () => {};
         }
     }
 
     private getEventFunction(eventName: ExecuteEventName, data?: any) {
+        console.log("디바이스", this.device);
         switch (this.device) {
             case "android":
                 if (window[eventName]) {
