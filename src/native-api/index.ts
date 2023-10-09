@@ -24,8 +24,11 @@ class NativeAPI {
             };
         } else {
             console.log("히히?");
-            this.device = "web";
-            this.execute = () => {};
+            this.device = "ios";
+            this.execute = (eventName: ExecuteEventName, data?: any) => {
+                const postData = data ? JSON.stringify(data) : undefined;
+                this.getEventFunction(eventName, postData);
+            };
         }
     }
 
@@ -58,4 +61,4 @@ export type IosFunction = { postMessage: (stringityData?: string) => void };
 
 type CloseChannelTalk = (eventName: "closeChannelTalk") => void;
 
-export default new NativeAPI();
+export default NativeAPI;

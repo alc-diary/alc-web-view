@@ -4,10 +4,11 @@ import channelTalk from "@/channel-talk";
 import NativeAPI from "@/native-api";
 
 const ChannelTalkView: React.FC = () => {
+    const nativeAPI = new NativeAPI();
     useEffect(() => {
         channelTalk.showMessenger();
         channelTalk.onHideMessenger(() => {
-            NativeAPI.execute("closeChannelTalk");
+            nativeAPI.execute("closeChannelTalk");
         });
     }, []);
 
