@@ -4,8 +4,19 @@ class NativeAPI {
     execute: CloseChannelTalk;
 
     constructor() {
+        const userAgent = window?.navigator.userAgent.toLowerCase();
+        // if ( varUA.indexOf('android') > -1) {
+        //     //안드로이드
+        //     return "android";
+        // } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
+        //     //IOS
+        //     return "ios";
+        // } else {
+        //     //아이폰, 안드로이드 외
+        //     return "other";
+        // }
+
         if (typeof window !== "undefined") {
-            const userAgent = window?.navigator.userAgent.toLowerCase();
             const ios = userAgent.indexOf("in_app_ios") > -1;
             const android = userAgent.indexOf("in_app_aos") > -1;
 
@@ -22,7 +33,12 @@ class NativeAPI {
                 this.getEventFunction(eventName, postData);
             };
         } else {
-            this.device = "web";
+            if (userAgent.indexOf("android") > -1) {
+                this.device = "android";
+            } else {
+                this.device = "ios";
+            }
+
             this.execute = (eventName: ExecuteEventName, data?: any) => {
                 const postData = data ? JSON.stringify(data) : undefined;
                 this.getEventFunction(eventName, postData);
