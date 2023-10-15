@@ -5,16 +5,6 @@ class NativeAPI {
 
     constructor() {
         const userAgent = window?.navigator.userAgent.toLowerCase();
-        // if ( varUA.indexOf('android') > -1) {
-        //     //안드로이드
-        //     return "android";
-        // } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
-        //     //IOS
-        //     return "ios";
-        // } else {
-        //     //아이폰, 안드로이드 외
-        //     return "other";
-        // }
 
         if (typeof window !== "undefined") {
             const ios = userAgent.indexOf("in_app_ios") > -1;
