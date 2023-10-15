@@ -22,7 +22,7 @@ class NativeAPI {
                 this.getEventFunction(eventName, postData);
             };
         } else {
-            this.device = "ios";
+            this.device = "web";
             this.execute = (eventName: ExecuteEventName, data?: any) => {
                 const postData = data ? JSON.stringify(data) : undefined;
                 this.getEventFunction(eventName, postData);
